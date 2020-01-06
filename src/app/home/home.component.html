@@ -1,0 +1,12 @@
+<div class="jumbotron bg-white">
+  <h1 class="display-4">Track Your Goal</h1>
+  <p class="lead">Track your own personal goal and see progress in time on line chart. You can track your weight, your money atd.</p>
+  <hr class="my-4">
+  <p>Create and track your own goal</p>
+
+  <div *ngIf="!isAuthenticated" class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class="mb-0">Please log in for creating new goal</p>
+  </div>
+  <button type="button" [disabled]="!isAuthenticated" class="btn btn-primary btn-lg" routerLink="goal-form" data-toggle="tooltip" data-placement="top" title="You need to be logged in">Create your Goal</button>
+</div>
