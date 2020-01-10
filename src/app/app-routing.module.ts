@@ -21,7 +21,7 @@ const routes: Routes = [
     canActivate: [OktaAuthGuard]
   },
   {
-    path: 'goals',
+    path: 'goals/:clientId',
     component: GoalsComponent,
     canActivate: [OktaAuthGuard]
   }];

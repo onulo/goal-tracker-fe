@@ -1,1 +1,26 @@
-<p>goals works!</p>
+<div *ngFor="let goal of goals">
+  <div class="card bg-primary text-white m-3">
+    <div class="card-body">
+      <button (click)="removeGoal(goal)"></button>
+      <div class="card-title">
+        Goal: {{goal.description}}
+      </div>
+      <div class="container row">
+        <div class="col">
+          <span>Initial value: {{goal.initialValue}}</span>
+        </div>
+        <div class="col">
+          <span>Goal value: {{goal.goalValue}}</span>
+        </div>
+      </div>
+      <div class="container row">
+        <div class="col">
+          <span>Goal Uid: {{goal.uid}}</span>
+        </div>
+        <div class="col">
+          <span>Goal date: {{goal.goalDate | date}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

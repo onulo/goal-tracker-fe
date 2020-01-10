@@ -1,35 +1,44 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OktaAuthService, UserClaims} from '@okta/okta-angular';
-import {ClientServiceService} from '../client-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
 
   isAuthenticated: boolean;
-  userId: string;
+  user: UserClaims;
 
-  constructor(public oktaAuth: OktaAuthService, public clientService: ClientServiceService) {
-    // Subscribe to authentication state changes
+  constructor(public oktaAuth: OktaAuthService, private router: Router) {
     this.oktaAuth.$authenticationState.subscribe(
-      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
+      (isAuthenticated: boolean) => {
+        this.isAuthenticated = isAuthenticated;
+        console.log('Authentication state changed to: ', this.isAuthenticated);
+        if (isAuthenticated !== true) {
+          this.user = null;
+        } else {
+          this.oktaAuth.getUser().then((user: UserClaims) => {
+            this.user = user;
+            console.log('Active user: ', this.user);
+          });
+        }
+      }
     );
-
-    // TODO move somewhere
-    this.clientService.getOrCreateClient().subscribe((data: any) => {
-      this.userId = data;
-    });
   }
 
   async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   }
 
   login() {
     this.oktaAuth.loginRedirect('/');
+  }
+
+  goToGoals() {
+    this.router.navigate(['/goals', this.user.sub]);
   }
 
 }

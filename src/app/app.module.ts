@@ -11,6 +11,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth-interceptor';
 import {GoalFormComponent} from './goal-form/goal-form.component';
 import {FormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const config = {
   clientId: '0oa2dy85fyiB7VD9u357',
@@ -33,7 +34,8 @@ const config = {
     AppRoutingModule,
     OktaAuthModule.initAuth(config),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     {provide: OKTA_CONFIG, useValue: config},

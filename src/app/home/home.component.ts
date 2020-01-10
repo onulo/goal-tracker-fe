@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
   isAuthenticated: boolean;
 
   constructor(private oktaAuthService: OktaAuthService) {
-    // Subscribe to authentication state changes
     this.oktaAuthService.$authenticationState.subscribe(
       (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
     );

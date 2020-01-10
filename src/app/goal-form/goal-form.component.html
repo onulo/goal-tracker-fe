@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-lg p-lg-3">
-      <form>
+      <form (ngSubmit)="createGoal()" #goalForm="ngForm">
         <h1>Create your goal</h1>
 
         <div class="form-group">
