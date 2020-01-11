@@ -25,7 +25,7 @@ export class GoalService {
   }
 
   createRecord(goalUid: string, record: Record): Observable<any> {
-    return this.httpClient.post('/goals/' + goalUid + '/records', record).pipe();
+    return this.httpClient.post('http://localhost:8080/api/v1/goals/' + goalUid + '/records', record).pipe();
   }
 
 

@@ -5,6 +5,8 @@
         My Goal Description: <strong>{{goal.description}}</strong>
       </div>
       <button class="btn btn-danger" (click)="deleteGoal(goal)">Delete</button>
+      <app-add-record-modal [goal]="goal" ></app-add-record-modal>
+
     </div>
   </div>
   <div class="card-body">
