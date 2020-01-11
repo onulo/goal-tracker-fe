@@ -2,29 +2,5 @@
 <button class="btn btn-primary btn-lg m-2" [routerLink]="['/goal-form']">Add Goal</button>
 
 <div *ngFor="let goal of goals">
-  <div class="card m-md-2 mt-md-4">
-    <div class="card-header">
-      <div class="d-md-flex flex-md-row justify-content-between">
-        <div>
-          My Goal Description: <strong>{{goal.description}}</strong>
-        </div>
-        <button class="btn btn-danger" (click)="removeGoal(goal)">Delete</button>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <p class="card-text">My initial Value: <strong>{{goal.initialValue}}</strong></p>
-          </div>
-          <div class="col-sm">
-            <p class="card-text">My goal Value: <strong>{{goal.goalValue}}</strong></p>
-          </div>
-          <div class="col-sm">
-            <p class="card-text">When I will reach goal: <strong>{{goal.goalDate | date}}</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-goal-head [goal]="goal" (goalDeleted)="removeGoal($event)"></app-goal-head>
 </div>

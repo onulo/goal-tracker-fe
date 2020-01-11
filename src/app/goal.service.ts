@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Goal} from './goal-form/goal';
 import {Observable} from 'rxjs';
+import {Record} from './Record';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class GoalService {
 
   removeGoal(goalUid: string) {
     return this.httpClient.delete('http://localhost:8080/api/v1/goals/' + goalUid).pipe();
+  }
+
+  createRecord(goalUid: string, record: Record): Observable<any> {
+    return this.httpClient.post('/goals/' + goalUid + '/records', record).pipe();
   }
 
 
