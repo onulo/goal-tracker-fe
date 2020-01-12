@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   isAuthenticated: boolean;
   user: UserClaims;
 
-  constructor(public oktaAuth: OktaAuthService, private router: Router) {
+  constructor(public oktaAuth: OktaAuthService, public router: Router) {
     this.oktaAuth.$authenticationState.subscribe(
       (isAuthenticated: boolean) => {
         this.isAuthenticated = isAuthenticated;
