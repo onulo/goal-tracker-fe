@@ -14,11 +14,13 @@ import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {GoalHeadComponent} from './goal-head/goal-head.component';
 import {AddRecordModalComponent} from './add-record-modal/add-record-modal.component';
+import {environment} from '../environments/environment';
+
 
 const config = {
   clientId: '0oa2dy85fyiB7VD9u357',
   issuer: 'https://dev-923407.okta.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
+  redirectUri: environment.redirectUri,
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 };
