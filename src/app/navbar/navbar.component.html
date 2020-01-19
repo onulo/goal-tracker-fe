@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
   <a class="navbar-brand" [routerLink]="['/']">Goal Tracker</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -12,12 +12,12 @@
         <a class="nav-link" type="button" [ngClass]="{'disabled': !isAuthenticated}" (click)="goToGoals()">My Goals</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" type="button">Contacts</a>
+        <a href="#" class="nav-link" type="button">Contacts</a>
       </li>
     </ul>
 
     <div class="form-inline my-2 my-lg-0">
-      <p *ngIf="user" class="m-1 mr-sm-2 text-light">Hi {{user.given_name}}</p>
+      <span *ngIf="user" class="navbar-text m-1 mr-sm-2 text-light">Hi {{user.given_name}}</span>
       <div class="d-inline">
         <button class="btn btn-outline-secondary  m-1 mr-sm-2" [disabled]="isAuthenticated" (click)="login()">
           Login
