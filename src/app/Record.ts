@@ -1,4 +1,5 @@
 export class Record {
+  uid: string;
   value: number;
-  timeStamp: Date;
+  recordDate: Date;
 }

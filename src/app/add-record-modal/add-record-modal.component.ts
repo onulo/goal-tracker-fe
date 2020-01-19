@@ -21,13 +21,12 @@ export class AddRecordModalComponent implements OnInit {
 
   addRecord() {
     const record = Object.assign({}, this.record);
-    if (record.timeStamp == null) {
-      record.timeStamp = new Date();
-    }
     if (this.goal.records === null) {
       this.goal.records = new Array<Record>();
     }
-    this.goal.records.push(record);
-    this.goalService.createRecord(this.goal.uid, record).subscribe();
+    this.goalService.createRecord(this.goal.uid, record).subscribe((data: Record) => {
+      this.goal.records.push(data);
+      console.table(this.goal.records);
+    });
   }
 }

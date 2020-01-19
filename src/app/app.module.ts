@@ -15,6 +15,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {GoalHeadComponent} from './goal-head/goal-head.component';
 import {AddRecordModalComponent} from './add-record-modal/add-record-modal.component';
 import {environment} from '../environments/environment';
+import {RecordsComponent} from './records/records.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import {environment} from '../environments/environment';
     GoalsComponent,
     GoalFormComponent,
     GoalHeadComponent,
-    AddRecordModalComponent
+    AddRecordModalComponent, RecordsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<table class="table" *ngIf="goal.records.length > 0">
+  <thead>
+  <tr>
+    <th scope="col">Record Date</th>
+    <th scope="col">Record Value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let record of goal.records">
+    <td>{{record.recordDate}}</td>
+    <td>{{record.value}}</td>
+    <td>
+      <button type="button" (click)="deleteRecord(goal, record)" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

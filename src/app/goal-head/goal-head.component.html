@@ -1,12 +1,14 @@
-<div class="card m-md-2 mt-md-4">
+<div class="card mx-md-2 mt-md-2">
   <div class="card-header">
-    <div class="d-md-flex flex-md-row justify-content-between">
+    <div class="d-md-flex justify-content-between">
+      <h4 class="bd-highlight m-2">Goal: {{goal.description}}</h4>
       <div>
-        My Goal Description: <strong>{{goal.description}}</strong>
+        <span>Records: </span><span class="badge badge-primary badge-pill">{{goal.records.length}}</span>
+        <span class="bd-highlight m-2">
+          <button class="btn btn-danger" (click)="deleteGoal(goal)">Delete Goal</button>
+        </span>
+        <span class="bd-highlight m-2"><app-add-record-modal [goal]="goal"></app-add-record-modal></span>
       </div>
-      <button class="btn btn-danger" (click)="deleteGoal(goal)">Delete</button>
-      <app-add-record-modal [goal]="goal" ></app-add-record-modal>
-
     </div>
   </div>
   <div class="card-body">
@@ -24,4 +26,8 @@
       </div>
     </div>
   </div>
+  <div class="card-body">
+    <app-records [goal]="goal"></app-records>
+  </div>
 </div>
+
