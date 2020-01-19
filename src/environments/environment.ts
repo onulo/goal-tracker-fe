@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  baseUrl: 'http://localhost:8080',
   authConfig: {
     clientId: '0oa2dy85fyiB7VD9u357',
     issuer: 'https://dev-923407.okta.com/oauth2/default',
