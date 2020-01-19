@@ -17,13 +17,16 @@
     </ul>
 
     <div class="form-inline my-2 my-lg-0">
-      <p *ngIf="user" class="my-2 my-sm-0 mr-sm-2 text-light">Welcome {{user.given_name}}</p>
-      <button [disabled]="isAuthenticated" (click)="login()" class="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2">
-        Login
-      </button>
-      <button [disabled]="!isAuthenticated" (click)="oktaAuth.logout()" [routerLink]="['/']"
-              class="btn btn-outline-secondary my-2 my-sm-0">Logout
-      </button>
+      <p *ngIf="user" class="m-1 mr-sm-2 text-light">Hi {{user.given_name}}</p>
+      <div class="d-inline">
+        <button class="btn btn-outline-secondary  m-1 mr-sm-2" [disabled]="isAuthenticated" (click)="login()">
+          Login
+        </button>
+        <button [disabled]="!isAuthenticated" (click)="oktaAuth.logout()" [routerLink]="['/']"
+                class="btn btn-outline-secondary m-1">Logout
+        </button>
+      </div>
+
     </div>
 
   </div>
