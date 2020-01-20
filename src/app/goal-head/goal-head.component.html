@@ -1,30 +1,40 @@
 <div class="card mx-md-2 mt-md-2">
   <div class="card-header">
     <div class="d-md-flex justify-content-between">
-      <h4 class="bd-highlight m-2">Goal: {{goal.description}}</h4>
-      <div>
+      <h4 class="bd-highlight m-sm-1">Goal: {{goal.description}}</h4>
+      <div class="float-right">
         <span>Records: </span><span class="badge badge-primary badge-pill">{{goal.records.length}}</span>
-        <span class="bd-highlight m-2">
-          <button class="btn btn-danger" (click)="deleteGoal(goal)">Delete Goal</button>
+        <span class="mx-1">
+          <button class="btn btn-danger" (click)="deleteGoal(goal)"><i class="fa fa-trash"></i></button>
         </span>
-        <span class="bd-highlight m-2"><app-add-record-modal [goal]="goal"></app-add-record-modal></span>
+        <span class="mx-1"><app-add-record-modal [goal]="goal"></app-add-record-modal></span>
       </div>
     </div>
   </div>
   <div class="card-body">
-    <div class="container">
-      <div class="row">
+    <div class="container container-fluid m-0 p-0">
+      <div class="row m-0 p-0">
         <div class="col-sm">
-          <p class="card-text">My initial Value: <strong>{{goal.initialValue}}</strong></p>
+          <div class="d-flex justify-content-between">
+            <p class="card-text">My initial Value: </p>
+            <strong>{{goal.initialValue}}</strong>
+          </div>
         </div>
         <div class="col-sm">
-          <p class="card-text">My goal Value: <strong>{{goal.goalValue}}</strong></p>
+          <div class="d-flex justify-content-between">
+            <p class="card-text">My goal Value: </p>
+            <strong>{{goal.goalValue}}</strong>
+          </div>
         </div>
         <div class="col-sm">
-          <p class="card-text">When I will reach goal: <strong>{{goal.goalDate | date}}</strong></p>
+          <div class="d-flex justify-content-between">
+            <p class="card-text">When I will reach goal: </p>
+            <strong>{{goal.goalDate | date}}</strong>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
   <div class="card-body">
     <app-records [goal]="goal"></app-records>
