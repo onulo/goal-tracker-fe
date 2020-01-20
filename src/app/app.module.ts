@@ -10,7 +10,7 @@ import {GoalsComponent} from './goals/goals.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth-interceptor';
 import {GoalFormComponent} from './goal-form/goal-form.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {GoalHeadComponent} from './goal-head/goal-head.component';
 import {AddRecordModalComponent} from './add-record-modal/add-record-modal.component';
@@ -33,7 +33,8 @@ import {RecordsComponent} from './records/records.component';
     OktaAuthModule.initAuth(environment.authConfig),
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: OKTA_CONFIG, useValue: environment.authConfig},
