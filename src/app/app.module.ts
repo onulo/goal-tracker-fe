@@ -16,6 +16,8 @@ import {GoalHeadComponent} from './goal-head/goal-head.component';
 import {AddRecordModalComponent} from './add-record-modal/add-record-modal.component';
 import {environment} from '../environments/environment';
 import {RecordsComponent} from './records/records.component';
+import {GoalChartComponent} from './goal-chart/goal-chart.component';
+import {HighchartsChartModule} from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import {RecordsComponent} from './records/records.component';
     GoalsComponent,
     GoalFormComponent,
     GoalHeadComponent,
-    AddRecordModalComponent, RecordsComponent
+    AddRecordModalComponent, RecordsComponent, GoalChartComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {RecordsComponent} from './records/records.component';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighchartsChartModule
   ],
   providers: [
     {provide: OKTA_CONFIG, useValue: environment.authConfig},
