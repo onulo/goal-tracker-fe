@@ -1,8 +1,10 @@
-<table class="table" *ngIf="goal.records.length > 0">
+<h4>Recorded Values: </h4>
+<table class="table table-sm table-hover" *ngIf="goal.records.length > 0">
   <thead>
   <tr>
     <th scope="col">Record Date</th>
     <th scope="col">Record Value</th>
+    <th scope="col" class="text-right">Delete Record</th>
   </tr>
   </thead>
   <tbody>

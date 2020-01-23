@@ -1,46 +1,44 @@
-<div class="card mx-md-2 mt-md-2">
+<div class="card  border-dark mb-3 mt-2 mx-1 mx-md-3 mt-md-3">
   <div class="card-header">
     <div class="d-md-flex justify-content-between">
       <h4 class="bd-highlight m-sm-1">Goal: {{goal.description}}</h4>
       <div class="float-right">
-        <span>Records: </span><span class="badge badge-primary badge-pill">{{goal.records.length}}</span>
-        <span class="mx-1">
-          <button class="btn btn-danger" (click)="deleteGoal(goal)"><i class="fa fa-trash"></i></button>
-        </span>
+        <span>Records: </span>
+        <span class="mr-3 badge badge-primary badge-pill">{{goal.records.length}}</span>
         <span class="mx-1"><app-add-record-modal [goal]="goal"></app-add-record-modal></span>
       </div>
     </div>
   </div>
-  <div class="card-body">
-    <div class="container container-fluid m-0 p-0">
-      <div class="row m-0 p-0">
-        <div class="col-sm">
-          <div class="d-flex justify-content-between">
-            <p class="card-text">My initial Value: </p>
-            <strong>{{goal.initialValue}}</strong>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="container container-fluid justify-content-between">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          <div class="col">
+            <span>My initial Value: <strong>{{goal.initialValue}}</strong></span>
           </div>
-        </div>
-        <div class="col-sm">
-          <div class="d-flex justify-content-between">
-            <p class="card-text">My goal Value: </p>
-            <strong>{{goal.goalValue}}</strong>
+          <div class="col">
+            <p>My goal Value: <strong>{{goal.goalValue}}</strong></p>
           </div>
-        </div>
-        <div class="col-sm">
-          <div class="d-flex justify-content-between">
-            <p class="card-text">When I will reach goal: </p>
-            <strong>{{goal.goalDate | date}}</strong>
+          <div class="col">
+            <span>When I will reach goal: <strong>{{goal.goalDate | date }}</strong></span>
           </div>
         </div>
       </div>
-    </div>
+    </li>
 
-  </div>
-  <div class="card-body">
-    <app-records [goal]="goal"></app-records>
-  </div>
-  <div class="card-body">
-    <app-goal-chart [goal]="goal"></app-goal-chart>
+    <li class="list-group-item">
+      <div class="card-body">
+        <app-records [goal]="goal"></app-records>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="card-body">
+        <app-goal-chart [goal]="goal"></app-goal-chart>
+      </div>
+    </li>
+  </ul>
+  <div class="card-footer text-muted">
+    <button class="btn btn-danger float-right" (click)="deleteGoal(goal)"><i class="fa fa-trash"></i> Delete Goal</button>
   </div>
 </div>
 

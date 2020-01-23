@@ -1,10 +1,11 @@
-<div class="d-md-flex justify-content-between">
-  <h3 class="m-lg-1 p-2">Your Goals</h3>
-  <button class="btn btn-primary btn-lg m-2" [routerLink]="['/goal-form']">Add Goal</button>
+<div class="mb-3 mt-2 mx-1 mx-md-3 mt-md-3">
+
+  <div class="d-flex flex-row justify-content-between">
+    <h3 class="m-lg-1 p-2">Your Goals</h3>
+    <button class="btn btn-primary m-2" [routerLink]="['/goal-form']"><i class="fa fa-plus"></i> Goal</button>
+  </div>
 </div>
 
 <div *ngFor="let goal of goals">
   <app-goal-head [goal]="goal" (goalDeleted)="removeGoal($event)"></app-goal-head>
-
-
 </div>
